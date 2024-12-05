@@ -1,0 +1,1 @@
+print("day1 of AOC 2024 !!!!")
