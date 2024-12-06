@@ -32,12 +32,22 @@ def sort_sum(nums1,nums2):
         tot+= abs(nums1[i]-nums2[i])
     return tot
 
+def similarity_score(nums1,nums2):
+    # nums2 should be the left list
+    multiplier = {}
+    for n in nums2:
+        multiplier[n] = multiplier.get(n,0)+1
+    
+    tot = 0
+    for n in nums1:
+        tot += n * multiplier.get(n,0)
+    return tot
 
 def main():
     lines = read_input('day1.txt')
     nums1,nums2 = lines_to_int(lines)
     print(sort_sum(nums1,nums2))
-
+    print("similarity score:", similarity_score(nums1,nums2))
 
 if __name__ == "__main__":
     main()
